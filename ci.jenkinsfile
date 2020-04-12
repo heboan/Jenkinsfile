@@ -1,9 +1,9 @@
 #!groovy
 @Library('jenkinslib') _
 
-def build = new org.devops.build()
-String buildType = "${env.buildType}"
-String buildShell = "${env.buildShell}"
+def deploy = new org.devops.deploy()
+String host = "${env.host}"
+String func = "${env.func}"
     
 pipeline {
     agent { node { label "master" } }
@@ -11,7 +11,7 @@ pipeline {
         stage("build"){
             steps{
                 script{
-                    build.Build(buildType,buildShell)
+                    deploy.AnsibleDeploy(host,func)
                 }
             }
         }
