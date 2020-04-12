@@ -5,8 +5,8 @@ pipeline {
         stage("build"){
             steps{
                 script{
-                    gradleHome = tool "GRADLE"
-                    sh "${gradleHome}/bin/gradle -v"
+                    nodeHome = tool "NPM"
+                    sh "${nodeHome}/bin/npm -v"
                 }
             }
         }
