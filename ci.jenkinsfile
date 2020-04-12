@@ -1,12 +1,15 @@
 #!groovy
+@Library('jenkinslib'@master) _
+
+def build = new org.devops.build()
+    
 pipeline {
     agent { node { label "master" } }
     stages{
         stage("build"){
             steps{
                 script{
-                    nodeHome = tool "NPM"
-                    sh "${nodeHome}/bin/npm -v"
+                    build.Build(buildType,buildShell)
                 }
             }
         }
