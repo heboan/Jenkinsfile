@@ -6,7 +6,7 @@ pipeline {
             steps{
                 script{
                     gradleHome = tool "GRADLE"
-                    sh "${gradleHome}/bin/gradle -v}"
+                    sh "${gradleHome}/bin/gradle -v"
                 }
             }
         }
